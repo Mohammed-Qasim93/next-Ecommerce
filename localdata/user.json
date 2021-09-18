@@ -1,0 +1,50 @@
+[
+  {
+    "firstname": "ahmed",
+    "lastname": "ali",
+    "username": "ahmedaliaqi",
+    "role": "admin",
+    "email": "ahmed@ahmed.io",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "DOB": "2013-10-19"
+  },
+  {
+    "firstname": "mohammed",
+    "lastname": "qasim",
+    "username": "watan",
+    "role": "admin",
+    "email": "alsubaihawi93@gmail.com",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "DOB": "1993-3-2"
+  },
+  {
+    "firstname": "hazim",
+    "lastname": "waleed",
+    "username": "walled23",
+    "email": "hazim@waleed.io",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "DOB": "1990-10-8"
+  },
+  {
+    "firstname": "wissam",
+    "lastname": "jawad",
+    "username": "jawadoo0",
+    "email": "jawad@wisam.io",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "DOB": "2010-10-19"
+  },
+  {
+    "firstname": "hala",
+    "lastname": "shihab",
+    "username": "halaty",
+    "role": "admin",
+    "email": "hala@mohammed.io",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "DOB": "1995-5-17"
+  }
+]

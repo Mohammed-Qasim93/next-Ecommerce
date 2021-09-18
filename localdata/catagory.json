@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Phones",
+    "_id": "614499e933029d27b8cea421",
+    "slug": "phones",
+    "products": ["6145ef26d56bbbe6a5609f82"]
+  },
+  {
+    "name": "Cooling",
+    "slug": "cooling",
+    "_id": "614499e933029d27b8cea422",
+    "products": [
+      "6145ef26d56bbbe6a5609f83",
+      "6145ef26d56bbbe6a5609f80",
+      "6145ef26d56bbbe6a5609f81"
+    ]
+  }
+]

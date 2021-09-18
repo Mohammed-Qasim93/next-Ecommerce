@@ -12,13 +12,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-// MyApp.getInitialProps = async ({ Component, context }) => {
-//   const res = await fetch(`http://localhost:3000/api/users`);
-//   const data = await res.json();
-//   let pageProps = {};
-//   if (Component.getInitialProps) {
-//     pageProps = await Component.getInitialProps(context);
-//   }
-//   return { pageProps, data };
-// };
 export default MyApp;

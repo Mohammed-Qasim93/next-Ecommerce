@@ -1,5 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Cookie from "js-cookie";
 import InputField from "./../components/InputField";
 import Button from "./../components/Button";
 import { DataContext } from "../store/GlobalState";
@@ -21,6 +23,9 @@ const signup = () => {
     userState;
 
   const { state, dispatch } = useContext(DataContext);
+  const { currentUser } = state;
+
+  const router = useRouter();
 
   const handelChange = (e) => {
     const { name, value } = e.target;
@@ -42,16 +47,36 @@ const signup = () => {
 
     if (errMsg) return dispatch({ type: "NOTIFY", payload: { error: errMsg } });
     dispatch({ type: "NOTIFY", payload: { loading: true } });
-    console.log(userState);
     const res = await postData("auth/signup", userState);
-    console.log("res err ", res);
+    if (res.err)
+      return dispatch({ type: "NOTIFY", payload: { error: res.err } });
+
+    dispatch({ type: "NOTIFY", payload: { success: res.msg } });
+    dispatch({
+      type: "AUTH",
+      payload: { token: res.accessToken, user: res.data.user },
+    });
+
+    Cookie.set("jwt", res.refreshToken, {
+      path: "api/auth/accessToken",
+      expires: 7,
+    });
+
+    localStorage.setItem("firstLogin", true);
+    console.log(res);
   };
 
+  useEffect(() => {
+    if (Object.keys(currentUser).length !== 0) {
+      router.push("/");
+    }
+  }, [currentUser]);
   return (
     <form
       onSubmit={handelSubmit}
-      className="sm:mt-10 mt-5 mb-2 py-5 sm:py-10 flex mx-auto flex-col items-center justify-center max-w-sm sm:max-w-sm   space-y-9 border-4"
+      className="sm:mt-1 mt-5 md:mb-2 mb-9 pt-8 pb-10 sm:py-8 flex mx-auto flex-col items-center justify-center max-w-sm sm:max-w-sm   space-y-6 border-4"
     >
+      <h2 className="text-center text-4xl">Sign up</h2>
       <div className="flex  flex-col items-center justify-center space-y-4 w-full pt-5">
         <InputField
           fieldName="firstname"
@@ -107,7 +132,7 @@ const signup = () => {
       <Button
         type="submit"
         text="Sign Up"
-        classes="max-w-2x bg-primaryButtonBg hover:bg-primaryButtonBgHover text-bodyColor py-2 px-3 rounded"
+        classes="max-w-2x bg-primaryButtonBg hover:bg-primaryButtonBgHover text-bodyColor py-2 px-4 "
       />
     </form>
   );

@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "tell us your last name"],
     },
-   
+
     role: {
       type: String,
       default: "user",

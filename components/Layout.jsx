@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import Head from "next/head";
 import Nav from "./Nav";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { FadeInAnimation } from "../utils/animations";
 import Notify from "./Notify";
+import { DataContext } from "../store/GlobalState";
 
 const Layout = ({ children }) => {
+  const { state, dispatch } = useContext(DataContext);
+  const { currentUser } = state;
+
   const { asPath } = useRouter();
   // console.log(data);
   return (
@@ -19,9 +25,9 @@ const Layout = ({ children }) => {
           </title>
           <link rel="icon" href="/favicon.svg" />
         </Head>
-        <Nav />
+        <Nav currentUser={currentUser} />
         <Notify />
-        <main>{children}</main>
+        <main className="md:pt-32 pt-36 ">{children}</main>
       </div>
     </AnimatePresence>
   );

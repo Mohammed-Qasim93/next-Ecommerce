@@ -1,20 +1,23 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import connectDB from "../../../utils/dBConnect";
 import userModel from "./../../../models/usersModel";
-// import createSendToken from "../../../utils/createSendToken";
 import valid from "../../../utils/validate";
+import {
+  generateAccessToken,
+  generateRefreshToken,
+} from "../../../utils/generateToken";
+import protect from "../../../middleware/protect";
+import restrictTo from "../../../middleware/restrictTo";
 
 connectDB();
 
-export default async (req = NextApiRequest, res = NextApiResponse) => {
-  switch (req.method) {
-    case "POST":
-      await signUp(req, res);
-      break;
+const handler = async (req = NextApiRequest, res = NextApiResponse) => {
+  if (req.method !== "POST") {
+    return res.status(400).send({
+      msg: "Only post allowed",
+    });
   }
-};
 
-const signUp = async (req, res) => {
   try {
     const { firstname, lastname, email, DOB, password, passwordConfirm } =
       req.body;
@@ -29,13 +32,14 @@ const signUp = async (req, res) => {
     );
 
     if (errMsg) {
-      return res.status(400).send({ err: errMsg });
+      return res.status(400).json({ err: errMsg });
     }
 
-    const user = await userModel.findOne({ email: email });
-    if (user) return res.status(400).json({ err: "this email already exists" });
+    const matchuser = await userModel.findOne({ email: email });
+    if (matchuser)
+      return res.status(400).json({ err: "this email already exists" });
 
-    const newUser = await userModel.create({
+    const user = await userModel.create({
       firstname,
       lastname,
       email,
@@ -44,8 +48,20 @@ const signUp = async (req, res) => {
       passwordConfirm,
     });
 
-    res.status(200).json({ data: newUser });
+    const accessToken = generateAccessToken({ id: user._id });
+    const refreshToken = generateRefreshToken({ id: user._id });
+
+    res.status(200).json({
+      msg: "Signed up successfully",
+      refreshToken,
+      accessToken,
+      data: {
+        user,
+      },
+    });
   } catch (err) {
     res.status(500).json({ err: err.message });
   }
 };
+
+export default handler;

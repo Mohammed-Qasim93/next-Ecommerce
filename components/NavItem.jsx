@@ -1,24 +1,44 @@
+import { useRouter } from "next/router";
+import Link from "next/link";
+
 const NavItem = ({ Icon, title, href, pNum, classes }) => {
+  const router = useRouter();
+  const isActive = (r) => {
+    if (r === router.pathname) {
+      return " text-gray-700 animate-pulse ";
+    } else {
+      return "";
+    }
+  };
+
   return pNum ? (
-    <a
-      href={href}
-      className="flex relative flex-col hover:text-gray-400  items-center lg:w-9 sm:w-8 w-10 group"
-    >
-      <Icon title={title} />
-      <span
-        style={{ width: "23px" }}
-        className="absolute  rounded-full font-bold animate-bounce bg-red-500 text-white px-2 py-1 -top-3 -right-1 z-1 text-xs "
+    <Link href={href}>
+      <a
+        name={title}
+        className={`flex relative flex-col hover:text-gray-400   items-center w-12 ${isActive(
+          href
+        )}  group`}
       >
-        {pNum}
-      </span>
-    </a>
+        <Icon title={title} />
+        <span
+          style={{ width: "23px" }}
+          className="absolute pointer-events-none  rounded-full font-bold animate-bounce bg-red-500 text-white px-2 py-1 -top-3 -right-1 z-1 text-xs "
+        >
+          {pNum}
+        </span>
+      </a>
+    </Link>
   ) : (
-    <a
-      href={href}
-      className={`flex flex-col hover:text-gray-400 items-center lg:w-9 sm:w-8 w-10 group ${classes}`}
-    >
-      <Icon title={title} />
-    </a>
+    <Link href={href}>
+      <a
+        name={title}
+        className={`flex flex-col ${isActive(
+          href
+        )} hover:text-gray-400 items-center w-12   group ${classes}`}
+      >
+        <Icon title={title} />
+      </a>
+    </Link>
   );
 };
 

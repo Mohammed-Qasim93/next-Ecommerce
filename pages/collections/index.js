@@ -1,13 +1,15 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import Card from "../components/Card";
+import CatagoryCard from "../../components/CatagoryCard";
 import {
   childAnimation,
   containerAnimation,
   fadeInAnimation,
-} from "./../utils/animations";
+} from "../../utils/animations";
+import { getData } from "../../utils/fetchData";
 
-const Collections = () => {
-  const i = [1, 4, 7];
+const Collections = (data) => {
+  const { catagories } = data;
   return (
     <div className="flex flex-col justify-center overflow-hidden mt-10 space-y-20">
       <motion.h1
@@ -24,8 +26,14 @@ const Collections = () => {
         animate="animate"
         className="cards flex flex-col md:flex-row items-center justify-center md:space-y-0 space-y-10 md:space-x-7 last:pb-10"
       >
-        {i.map((i) => (
-          <Card key={i} />
+        {catagories.data.map((catagory) => (
+          <CatagoryCard
+            key={catagory._id}
+            name={catagory.name}
+            numberOfItems={catagory.numberOfItems}
+            img={catagory.image}
+            slug={catagory.slug}
+          />
         ))}
       </motion.div>
     </div>
@@ -33,3 +41,14 @@ const Collections = () => {
 };
 
 export default Collections;
+
+export async function getServerSideProps(context) {
+  const res = await getData("product/catagories");
+
+  const { data } = await res;
+  return {
+    props: {
+      catagories: data,
+    }, // will be passed to the page component as props
+  };
+}

@@ -3,15 +3,15 @@ import Link from "next/link";
 
 const ShowCase = () => {
   return (
-    <div className="flex justify-evenly text-gray-500 py-5 items-center space-y-2 h-full px-4">
-      <div className=" flex h-72 sm:h-52 md:h-60 sm:pt-0 pt-10 flex-col justify-between z-50">
+    <div className="flex justify-evenly text-gray-500 pt-12 pb-64  items-center space-y-2 h-full px-4">
+      <div className=" flex h-80 sm:h-52 md:h-60 sm:pt-0 pt-32 flex-col justify-between z-30">
         <div className=" flex flex-col w-100 justify-evenly h-40">
           <h2 className="md:text-6xl   text-5xl uppercase">e-store</h2>
           <h3 className=" text-2xl w-80 uppercase sm:ml-0 md:ml-5 ml-5">
             see our new collections
           </h3>
         </div>
-        <div className="buttons uppercase  ">
+        <div className="buttons uppercase ">
           <span className="p-2 md:text-2xl text-lg rounded-sm hover:bg-primaryButtonBgHover bg-primaryButtonBg text-bodyColor">
             <Link href="/collections">start shoping</Link>
           </span>

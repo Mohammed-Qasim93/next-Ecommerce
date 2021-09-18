@@ -1,0 +1,46 @@
+[
+  {
+    "name": "wall fan",
+    "summery": "small wall fan that supports water",
+    "_id": "6145ef26d56bbbe6a5609f80",
+    "catagory": "614499e933029d27b8cea422",
+    "price": 90,
+    "stock": "9",
+    "images": [
+      "https://res.cloudinary.com/dec53tbph/image/upload/v1609423573/lbkldyiko2mui1hpmkda.jpg"
+    ]
+  },
+  {
+    "name": "Lg conditioner",
+    "_id": "6145ef26d56bbbe6a5609f81",
+    "summery": "Greate Cooling device",
+    "catagory": "614499e933029d27b8cea422",
+    "price": 90,
+    "stock": "9",
+    "images": [
+      "https://res.cloudinary.com/dec53tbph/image/upload/v1609423573/lbkldyiko2mui1hpmkda.jpg"
+    ]
+  },
+  {
+    "name": "Galaxy S4",
+    "_id": "6145ef26d56bbbe6a5609f82",
+    "summery": "phone nice",
+    "catagory": "614499e933029d27b8cea421",
+    "price": 90,
+    "stock": "9",
+    "images": [
+      "https://res.cloudinary.com/dec53tbph/image/upload/v1609423573/lbkldyiko2mui1hpmkda.jpg"
+    ]
+  },
+  {
+    "name": "General",
+    "_id": "6145ef26d56bbbe6a5609f83",
+    "summery": "small wall fan that supports water",
+    "catagory": "614499e933029d27b8cea422",
+    "price": 90,
+    "stock": "9",
+    "images": [
+      "https://res.cloudinary.com/dec53tbph/image/upload/v1609423573/lbkldyiko2mui1hpmkda.jpg"
+    ]
+  }
+]

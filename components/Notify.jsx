@@ -7,13 +7,13 @@ const Notify = () => {
   const { state, dispatch } = useContext(DataContext);
   const { notify } = state;
   return (
-    <>
+    <div className="absolute top-40 right-4">
       {notify.loading && <Loading />}
       {notify.error && (
         <Alert
           msg={{ msg: notify.error, title: "Error" }}
           handelShow={() => dispatch({ type: "NOTIFY", payload: {} })}
-          bgColor="bg-red-500"
+          bgColor="bg-red-400"
         />
       )}
       {notify.success && (
@@ -23,7 +23,7 @@ const Notify = () => {
           bgColor="bg-green-500"
         />
       )}
-    </>
+    </div>
   );
 };
 

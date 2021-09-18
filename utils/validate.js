@@ -1,5 +1,4 @@
 const valid = (firstname, lastname, email, DOB, password, passwordConfirm) => {
-  console.log(password);
   if (!firstname || !lastname || !password || !DOB || !email) {
     return "Please add your informations.";
   }
