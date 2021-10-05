@@ -35,7 +35,7 @@ const Dropdown = ({ photo }) => {
         <div className=" flex flex-col absolute top-10 md:-right-8 items-center justify-around transform transition-all duration-500 shadow-md bg-secondaryButtonBg p-3 space-y-3 divide-y text-bodyColor">
           {currentUser.user.role === "admin" ? (
             <DropDownLink
-              to="dashboard"
+              to="/dashboard"
               title="Dashboard"
               handelClick={handelClick}
             />
@@ -43,7 +43,7 @@ const Dropdown = ({ photo }) => {
             ""
           )}
           <DropDownLink
-            to="profile"
+            to="/profile"
             title="Profile"
             handelClick={handelClick}
           />
