@@ -10,12 +10,14 @@ import {
 connectDB();
 
 const handler = async (req = NextApiRequest, res = NextApiResponse) => {
-  if (req.method !== "GET") {
-    return res.status(400).send({
-      msg: "Only Get allowed",
-    });
+  switch (req.method) {
+    case "POST":
+      await createOne(catagoryModel, req, res);
+      break;
+    case "GET":
+      await getAll(catagoryModel, req, res);
+      break;
   }
-  await getAll(catagoryModel, req, res);
 };
 
 export default handler;

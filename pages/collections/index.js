@@ -1,15 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import CatagoryCard from "../../components/CatagoryCard";
-import {
-  childAnimation,
-  containerAnimation,
-  fadeInAnimation,
-} from "../../utils/animations";
+import { containerAnimation, fadeInAnimation } from "../../utils/animations";
+import { DataContext } from "../../store/GlobalState";
 import { getData } from "../../utils/fetchData";
 
-const Collections = (data) => {
-  const { catagories } = data;
+const Collections = ({ catagories }) => {
   return (
     <div className="flex flex-col justify-center overflow-hidden mt-10 space-y-20">
       <motion.h1
@@ -29,6 +25,7 @@ const Collections = (data) => {
         {catagories.data.map((catagory) => (
           <CatagoryCard
             key={catagory._id}
+            href={`collections/${catagory.id}`}
             name={catagory.name}
             numberOfItems={catagory.numberOfItems}
             img={catagory.image}
@@ -43,7 +40,7 @@ const Collections = (data) => {
 export default Collections;
 
 export async function getServerSideProps(context) {
-  const res = await getData("product/catagories");
+  const res = await getData("catagories");
 
   const { data } = await res;
   return {

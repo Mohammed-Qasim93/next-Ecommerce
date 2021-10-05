@@ -6,6 +6,8 @@ const reducers = (state, action) => {
       return { ...state, notify: action.payload };
     case ACTIONS.AUTH:
       return { ...state, currentUser: action.payload };
+    case ACTIONS.CATAGORY:
+      return { ...state, catagory: action.payload };
     default:
       return state;
   }

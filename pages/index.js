@@ -1,7 +1,4 @@
-import { useState } from "react";
 import ShowCase from "../components/ShowCase";
-import { getData } from "../utils/fetchData";
-import CatagoryCard from "../components/CatagoryCard";
 
 export default function Home(props) {
   return (

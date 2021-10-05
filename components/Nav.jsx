@@ -1,12 +1,11 @@
+import Link from "next/link";
 import {
   HomeIcon,
   InformationCircleIcon,
   CollectionIcon,
   LoginIcon,
-  LogoutIcon,
   ShoppingCartIcon,
   UserAddIcon,
-  UserIcon,
 } from "@heroicons/react/outline";
 import NavItem from "./NavItem";
 import Dropdown from "./Dropdown";
@@ -14,9 +13,11 @@ import Dropdown from "./Dropdown";
 const Nav = ({ currentUser }) => {
   return (
     <nav className="flex fixed w-full md:h-32  top-0 z-50  md:flex-row flex-col md:justify-between py-4 items-center  px-5   md:space-y-0 space-y-8 md:px-10 lg:px-16 font-semibold bg-bodyColor">
-      <a href="/" className="logo text-secondaryButtonBg ">
-        <h1 className="text-4xl  uppercase">e-store</h1>
-      </a>
+      <Link href="/">
+        <a className="logo text-secondaryButtonBg ">
+          <h1 className="text-4xl  uppercase">e-store</h1>
+        </a>
+      </Link>
 
       <div className="flex space-x-5 sm:space-x-8  items-center">
         <NavItem Icon={HomeIcon} title="home" href="/" />

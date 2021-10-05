@@ -1,3 +1,4 @@
+import { useContext, useEffect } from "react";
 import Image from "next/image";
 import Button from "./Button";
 import { motion } from "framer-motion";
@@ -7,7 +8,7 @@ import {
   fadeInAnimation,
 } from "../utils/animations";
 
-const Card = ({ img, name, summery, numberOfItems, slug }) => {
+const Card = ({ img, name, href, summery, numberOfItems }) => {
   return (
     <motion.div
       variants={containerAnimation}
@@ -50,14 +51,12 @@ const Card = ({ img, name, summery, numberOfItems, slug }) => {
         variants={fadeInAnimation}
         className="buttons flex justify-between w-full p-3"
       >
-        <div className="w-full">
-          <Button
-            type="button"
-            text="View"
-            to={`collections/${slug}`}
-            classes="px-2 py-1 bg-primaryButtonBg hover:bg-primaryButtonBgHover  text-bodyColor "
-          />
-        </div>
+        <Button
+          type="button"
+          text="View"
+          to={href}
+          classes=" flex-grow py-1 bg-primaryButtonBg hover:bg-primaryButtonBgHover  text-bodyColor "
+        />
       </motion.div>
     </motion.div>
   );

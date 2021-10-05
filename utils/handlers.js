@@ -10,6 +10,7 @@ export const getOne = async (Model, populateOptions, req, res) => {
   if (!doc) {
     return res.status(404).json({ message: "Document not found" });
   }
+
   res.status(200).json({
     status: "seccess",
     results: doc.length,
@@ -31,6 +32,7 @@ export const getAll = async (Model, req, res) => {
   const doc = await result.query;
 
   // return data;
+  // console.log(doc.json());
 
   res.status(200).json({
     status: "seccess",

@@ -19,7 +19,7 @@ const ShowCase = () => {
       </div>
 
       <div className="sm:static sm:opacity-100  rounded overflow-hidden absolute top-52 opacity-20 left-0 right-0 bottom-0 ">
-        <Image src="/img/download.jpg" width="700" height="550" />
+        <Image src="/img/download.png" width="700" height="550" />
       </div>
     </div>
   );
