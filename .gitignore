@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
-localdata
+/localdata/
 .pnp.js
 
 # testing

@@ -14,7 +14,7 @@ const Collections = ({ catagories }) => {
         animate="animate"
         className="section-title sm:text-3xl text-center capitalize"
       >
-        welcome to our collection you can find any thing here by it's catagory
+        welcome to our collections you can find any thing here by it's catagory
       </motion.h1>
       <motion.div
         variants={containerAnimation}
@@ -46,6 +46,6 @@ export async function getServerSideProps(context) {
   return {
     props: {
       catagories: data,
-    }, // will be passed to the page component as props
+    },
   };
 }

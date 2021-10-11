@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import "../style.css";
 import Layout from "../components/Layout";
 import { DataProvider } from "../store/GlobalState";
 

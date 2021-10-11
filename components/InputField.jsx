@@ -1,4 +1,4 @@
-const InputField = ({ type, fieldName, placeholder, handelChange }) => {
+const InputField = ({ type, fieldName, placeholder, handelChange, value }) => {
   return (
     <input
       type={type}
@@ -6,6 +6,7 @@ const InputField = ({ type, fieldName, placeholder, handelChange }) => {
       onChange={handelChange}
       name={fieldName}
       placeholder={placeholder}
+      value={value}
     />
   );
 };

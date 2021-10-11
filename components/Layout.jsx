@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import Head from "next/head";
-import Nav from "./Nav";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import { FadeInAnimation } from "../utils/animations";
-import Notify from "./Notify";
 import { DataContext } from "../store/GlobalState";
+import Nav from "./Nav";
+import Notify from "./Notify";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const { state, dispatch } = useContext(DataContext);
@@ -27,7 +28,10 @@ const Layout = ({ children }) => {
         </Head>
         <Nav currentUser={currentUser} />
         <Notify />
-        <main className="md:pt-32 pt-36 ">{children}</main>
+        <main style={{ minHeight: "100vh" }} className="md:p-32 pt-40  ">
+          {children}
+        </main>
+        <Footer />
       </div>
     </AnimatePresence>
   );

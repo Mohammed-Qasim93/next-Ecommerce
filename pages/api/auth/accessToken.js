@@ -17,7 +17,9 @@ const handler = async (req, res) => {
       process.env.REFRESH_JWT_SECRET
     );
     if (!decoded)
-      return res.status(400).json({ err: "Your toen is incorrect or expired" });
+      return res
+        .status(400)
+        .json({ err: "Your token is incorrect or expired" });
 
     const user = await userModel.findById(decoded.id.id);
     if (!user) return res.status(400).json({ err: "User not found" });

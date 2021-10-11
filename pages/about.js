@@ -5,7 +5,7 @@ const About = () => {
         <h1 className="uppercase text-6xl">hi there</h1>
         <p className="text-4xl capitalize">welcome to E-Store</p>
       </div>
-      <div className="text-xl w-screen flex justify-center">
+      <div className="text-xl sm:max-w-110  flex justify-center">
         <p className="sm:w-1/2 w-96">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id nemo est
           nihil commodi aspernatur quis quos provident eum minima, quasi

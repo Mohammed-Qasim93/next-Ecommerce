@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
-const catagoryModel = require("./catagoryModel");
+const CatagoryModel = require("./catagoryModel");
 
 const productSchema = new mongoose.Schema(
   {
@@ -114,13 +114,19 @@ productSchema.statics.calcNumberOfItems = async function (catagoryId) {
 
   if (stats.length > 0) {
     // if there is a catagory
-    await catagoryModel.findByIdAndUpdate(catagoryId, {
-      numberOfItems: stats[0].nItems,
-    });
+    await CatagoryModel.findOneAndUpdate(
+      { _id: catagoryId },
+      {
+        numberOfItems: stats[0].nItems,
+      }
+    );
   } else {
-    await catagoryModel.findByIdAndUpdate(catagoryId, {
-      numberOfItems: 0,
-    });
+    await CatagoryModel.findOneAndUpdate(
+      { _id: catagoryId },
+      {
+        numberOfItems: 0,
+      }
+    );
   }
 };
 

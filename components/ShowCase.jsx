@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ShowCase = () => {
   return (
-    <div className="flex justify-evenly text-gray-500 pt-12 pb-64  items-center space-y-2 h-full px-4">
+    <div className="flex justify-evenly text-gray-500 pt-12 md:pb-16  pb-40 items-center space-y-2 h-full px-4">
       <div className=" flex h-80 sm:h-52 md:h-60 sm:pt-0 pt-32 flex-col justify-between z-30">
         <div className=" flex flex-col w-100 justify-evenly h-40">
           <h2 className="md:text-6xl   text-5xl uppercase">e-store</h2>

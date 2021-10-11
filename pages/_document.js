@@ -7,11 +7,25 @@ class MyDocument extends Document {
   }
 
   render() {
+    const styles = {
+      "::-webkit-scrollbar": {
+        width: "3px",
+      },
+      "::-webkit-scrollbar-track": {
+        background: "red",
+      },
+      "::-webkit-scrollbar-thumb": {
+        background: "#432432",
+      },
+      "::-webkit-scrollbar-thumb:hover": {
+        background: "#875765",
+      },
+    };
     return (
       <Html lang="en">
         <Head />
 
-        <body className="bg-bodyColor">
+        <body className={`bg-bodyColor ${styles}`}>
           <Main />
           <NextScript />
         </body>
