@@ -2,10 +2,12 @@ export const containerAnimation = {
   initial: {
     // x: "-100vh",
     opacity: 0,
+    scale: 1,
   },
   animate: {
     // x: 0,
     opacity: 1,
+    scale: 1,
     transition: {
       duration: 0.5,
       delay: 0.2,
@@ -15,14 +17,12 @@ export const containerAnimation = {
     },
   },
   hover: {
-    scale: [1, 1.075],
+    scale: 1.05,
     originZ: 0,
     transition: {
       duration: 0.5,
       // delay: 0.3,
       ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "reverse",
     },
   },
 };

@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const ShowCase = () => {
   return (
-    <div className="flex justify-evenly text-gray-500 pt-12 md:pb-16  pb-40 items-center space-y-2 h-full px-4">
-      <div className=" flex h-80 sm:h-52 md:h-60 sm:pt-0 pt-32 flex-col justify-between z-30">
-        <div className=" flex flex-col w-100 justify-evenly h-40">
+    <div className="flex justify-around text-gray-500 pt-12 md:pb-16 md:space-x-20 pb-40 items-center space-y-2 h-full  px-4">
+      <div className=" flex h-80 sm:h-52  sm:pt-0 pt-32 flex-col justify-between z-30">
+        <div className=" flex flex-col  justify-evenly h-40">
           <h2 className="md:text-6xl   text-5xl uppercase">e-store</h2>
           <h3 className=" text-2xl w-80 uppercase sm:ml-0 md:ml-5 ml-5">
             see our new collections
@@ -18,7 +18,7 @@ const ShowCase = () => {
         </div>
       </div>
 
-      <div className="sm:static sm:opacity-100  rounded overflow-hidden absolute top-52 opacity-20 left-0 right-0 bottom-0 ">
+      <div className="sm:static  sm:opacity-100  rounded overflow-hidden absolute top-52 opacity-20 left-0 right-0 bottom-0 ">
         <Image src="/img/download.png" width="700" height="550" />
       </div>
     </div>

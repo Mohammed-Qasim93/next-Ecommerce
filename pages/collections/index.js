@@ -41,8 +41,8 @@ export default Collections;
 
 export async function getServerSideProps(context) {
   const res = await getData("catagories");
-
   const { data } = await res;
+
   return {
     props: {
       catagories: data,

@@ -32,7 +32,7 @@ const Loading = () => {
     to{stroke-dashoffset: 234;}
 }`;
   return (
-    <div className="fixed flex items-center justify-center w-full h-full text-center bg-gray-600 text-white top-0 left-0 z-50 loading">
+    <div className="fixed flex items-center justify-center w-full h-full text-center bg-primaryButtonBg text-bodyColor top-0 left-0 z-110 loading">
       <style> {styles}</style>
       <svg width="205" height="250" viewBox="0 0 40 50">
         <polygon

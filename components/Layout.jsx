@@ -7,6 +7,7 @@ import { DataContext } from "../store/GlobalState";
 import Nav from "./Nav";
 import Notify from "./Notify";
 import Footer from "./Footer";
+import SideCart from "./SideCart";
 
 const Layout = ({ children }) => {
   const { state, dispatch } = useContext(DataContext);
@@ -28,6 +29,7 @@ const Layout = ({ children }) => {
         </Head>
         <Nav currentUser={currentUser} />
         <Notify />
+        <SideCart />
         <main style={{ minHeight: "100vh" }} className="md:p-32 pt-40  ">
           {children}
         </main>

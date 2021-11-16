@@ -47,16 +47,7 @@ const Carosul = ({ data }) => {
           >
             {data.data.map((p) => (
               <div key={p.id} className="w-60">
-                <ProductCard
-                  price={p.price}
-                  summery={p.summery}
-                  name={p.name}
-                  key={p._id}
-                  href={`/products/${p._id}`}
-                  img={p.images[0]}
-                  topSale={p.topSale}
-                  bestDeal={p.bestDeal}
-                />
+                <ProductCard product={p} href={`/products/${p._id}`} />
               </div>
             ))}
           </div>

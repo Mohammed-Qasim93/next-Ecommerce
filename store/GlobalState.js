@@ -7,10 +7,12 @@ export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const initialState = {
     notify: {},
+    sideCart: {},
     currentUser: {},
-    catagory: {},
+    cart: [],
   };
   const [state, dispatch] = useReducer(reducers, initialState);
+  const { cart } = state;
 
   useEffect(async () => {
     const firstLogin = localStorage.getItem("firstLogin");
@@ -29,6 +31,14 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const customer_cart = JSON.parse(localStorage.getItem("customer_cart"));
+    if (customer_cart) dispatch({ type: "ADD_CART", payload: customer_cart });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("customer_cart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <DataContext.Provider value={{ state, dispatch }}>
       {children}

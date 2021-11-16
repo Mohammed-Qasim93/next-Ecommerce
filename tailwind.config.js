@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       zIndex: {
         100: "100",
+        110: "110",
       },
       colors: {
         primaryButtonBg: "#82A3AC",

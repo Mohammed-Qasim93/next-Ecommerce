@@ -1,21 +1,16 @@
 import connectDB from "../../../utils/dBConnect";
-import catagoryModel from "../../../models/catagoryModel";
-import {
-  getAll,
-  createOne,
-  deleteOne,
-  updateOne,
-} from "../../../utils/handlers";
+import subcatagoryModel from "../../../models/subCatagoryModel";
+import { getAll, createOne } from "../../../utils/handlers";
 
 connectDB();
 
 const handler = async (req = NextApiRequest, res = NextApiResponse) => {
   switch (req.method) {
     case "POST":
-      await createOne(catagoryModel, req, res);
+      await createOne(subcatagoryModel, req, res);
       break;
     case "GET":
-      await getAll(catagoryModel, req, res);
+      await getAll(subcatagoryModel, req, res);
       break;
   }
 };

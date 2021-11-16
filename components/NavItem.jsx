@@ -13,9 +13,9 @@ const NavItem = ({ Icon, title, href, pNum, classes }) => {
 
   return pNum ? (
     <Link href={href}>
-      <a
+      <span
         name={title}
-        className={`flex relative flex-col hover:text-gray-400   items-center w-12 ${isActive(
+        className={`flex relative flex-col hover:text-gray-400 cursor-pointer items-center w-12 ${isActive(
           href
         )}  group`}
       >
@@ -26,18 +26,18 @@ const NavItem = ({ Icon, title, href, pNum, classes }) => {
         >
           {pNum}
         </span>
-      </a>
+      </span>
     </Link>
   ) : (
     <Link href={href}>
-      <a
+      <span
         name={title}
-        className={`flex flex-col ${isActive(
+        className={`flex flex-col cursor-pointer ${isActive(
           href
         )} hover:text-gray-400 items-center w-12   group ${classes}`}
       >
         <Icon title={title} />
-      </a>
+      </span>
     </Link>
   );
 };
