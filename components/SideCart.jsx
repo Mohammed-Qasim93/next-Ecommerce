@@ -7,7 +7,7 @@ const SideCart = () => {
 
   return (
     <div className="z-40 absolute top-40 bg-green-400 right-4">
-      {sideCart && <div className="container w-full max-h-screen">[p[[]]]</div>}
+      {sideCart && <div className="container w-full max-h-screen"></div>}
     </div>
   );
 };
